@@ -4,6 +4,10 @@
 
 	require ('class.php');
 
+	echo "\n";
+	echo "[!] Tokopedia Email Checker ";
+	echo "\n\n";
+
 	$options = getopt("l:d:r:");
 
 	if (file_exists($options['r'])) {
@@ -25,14 +29,14 @@
 
 		if ($valid === 'true') {
 
-			echo "[$email][EMAIL VALID]";
+			echo "[$email][email valid]";
 
 			fopen($result, "w");
 			file_put_contents($result, $email.PHP_EOL, FILE_APPEND);
 			
 		} else {
 
-			echo "[$email][EMAIL NOTVALID]";
+			echo "[$email][tidak valid]";
 
 		}
 
@@ -49,9 +53,9 @@
 	        $line = fgets($fh);
 	        $email=trim($line);
 
-	        echo "[".$zero++."/".$count."]";
+	        echo "[+][".$zero++."/".$count."]";
 	        check($email,$options['r']);
-	        echo "[DELAY ".$options['d']." DETIK]";
+	        echo "[delay ".$options['d']." detik]";
 	        echo "\n";
 
 	        sleep($options['d']);
